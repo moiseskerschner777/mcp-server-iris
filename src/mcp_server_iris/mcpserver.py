@@ -87,7 +87,7 @@ class MCPServer(FastMCP):
         **settings,
     ):
         super().__init__(
-            name=name, version=version, instructions=instructions, lifespan=lifespan
+            name=name, instructions=instructions, lifespan=lifespan
         )
 
         self._mcp_server = Server(
