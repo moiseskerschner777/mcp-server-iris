@@ -22,7 +22,7 @@ def get_db_config():
 
     if not all([config["hostname"], config["username"], config["password"], config["namespace"]]):
         raise ValueError("Missing required database configuration")
-    logger.info(f"Server configuration: iris://{config["username"]}:{"x"*8}@{config["hostname"]}:{config["port"]}/{config["namespace"]}")
+    logger.info(f"Server configuration: iris://{config['username']}:{'x'*8}@{config['hostname']}:{config['port']}/{config['namespace']}")
 
     return config
 

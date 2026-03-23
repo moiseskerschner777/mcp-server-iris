@@ -112,7 +112,8 @@ def init(server, logger):
             items_status = production_items_status(
                 iris, status == ProductionStatus.Running, name
             )
-            return f"Production {name} is running with items: \n{"\n".join(items_status)}\n{reason_update}"
+            newline = "\n"
+            return f"Production {name} is running with items: \n{newline.join(items_status)}\n{reason_update}"
         return f"Production {name} with status: {status.name}\n{reason_update}"
 
     @server.tool(description="Start an Interoperability Production")

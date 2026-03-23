@@ -1,4 +1,5 @@
 import sys
+import os
 import asyncio
 from typing import Optional
 from contextlib import AsyncExitStack
@@ -20,13 +21,15 @@ class MCPClient:
     async def connect_to_server(self):
         """Connect to an MCP server"""
         server_params = StdioServerParameters(
-            command=sys.executable, args=["-m", "mcp_server_iris"], env={
-                "IRIS_HOSTNAME": "localhost",
-                "IRIS_PORT": "1972",
-                "IRIS_NAMESPACE": "USER",
-                "IRIS_USERNAME": "_SYSTEM",
-                "IRIS_PASSWORD": "SYS",
-            }
+            command=sys.executable,
+            args=["-m", "mcp_server_iris"],
+            env={
+                "IRIS_HOSTNAME": os.getenv("IRIS_HOSTNAME", "localhost"),
+                "IRIS_PORT": os.getenv("IRIS_PORT", "1972"),
+                "IRIS_NAMESPACE": os.getenv("IRIS_NAMESPACE", "USER"),
+                "IRIS_USERNAME": os.getenv("IRIS_USERNAME", "_SYSTEM"),
+                "IRIS_PASSWORD": os.getenv("IRIS_PASSWORD", "SYS"),
+            },
         )
         # server_params = StdioServerParameters(
         #     command="uvx", args=["."],
