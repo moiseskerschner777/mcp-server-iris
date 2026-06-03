@@ -1,6 +1,6 @@
 services:
   database:
-    image: containers.intersystems.com/intersystems/iris-community:2025.1
+    image: intersystems/iris-community:2025.1
     restart: always
     ports:
       - "1972:1972"
