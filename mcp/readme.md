@@ -4,7 +4,7 @@ The project includes an example client in `example/example.py`. To run it:
 
 1. Create a virtual environment and install dependencies:
    ```bash
-   python3 -m venv venv
+   python3 -m venv .venv
    source venv/bin/activate
    pip install -r requirements-dev.txt
    pip install -e ..
